@@ -27,10 +27,12 @@ function UserBio() {
             </div>
           </div>
         </div>
-        <a href={html_url} target="_blank">
-          <button className="bg-blue-700 w-20 h-10 text-white font-light text-xl rounded-3xl mr-3">
-            Visit
-          </button>
+        <a
+          className="bg-blue-700 text-white font-light text-base px-5 py-2 rounded-3xl mr-3 md:ml-10"
+          href={html_url}
+          target="_blank"
+        >
+          Visit
         </a>
       </div>
       <p className="mt-5 text-base text-center">{bio}</p>

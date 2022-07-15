@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import defUser from '../components/defaultDatas/defUser';
 import defFollowers from '../components/defaultDatas/defFollowers';
 import defRepos from '../components/defaultDatas/defRepos';
+import defFollowing from '../components/defaultDatas/defFollowing';
 
 const githubApiUrl = 'https://api.github.com';
 
@@ -11,6 +12,7 @@ function AppProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [githubUser, setGithubUser] = useState(defUser);
   const [githubFollowers, setGithubFollowers] = useState(defFollowers);
+  const [githubFollowing, setGithubFollowing] = useState(defFollowing);
   const [githubRepos, setGithubRepos] = useState(defRepos);
 
   const fetchGithubDatas = async (user) => {
@@ -24,6 +26,11 @@ function AppProvider({ children }) {
     if (followersRes.status === 200) {
       const followersDatas = await followersRes.json();
       setGithubFollowers(followersDatas);
+    }
+    const followingRes = await fetch(`${githubApiUrl}/users/${user}/following`);
+    if (followingRes.status === 200) {
+      const followingData = await followingRes.json();
+      setGithubFollowing(followingData);
     }
     const reposRes = await fetch(
       `${githubApiUrl}/users/${user}/repos?sort=created`
@@ -45,6 +52,7 @@ function AppProvider({ children }) {
         isLoading,
         githubUser,
         githubFollowers,
+        githubFollowing,
         githubRepos,
         fetchGithubDatas,
       }}

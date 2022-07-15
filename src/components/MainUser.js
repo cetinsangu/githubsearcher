@@ -1,5 +1,4 @@
 import UserBio from './UserBio';
-import Followers from './Followers';
 import LastRepos from './LastRepos';
 
 function MainUser() {
