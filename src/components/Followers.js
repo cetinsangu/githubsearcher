@@ -29,10 +29,12 @@ function Followers() {
                   </div>
                 </div>
               </div>
-              <a href={html_url} target="_blank">
-                <button className="bg-blue-700 w-20 h-10 text-white font-light text-sm rounded-3xl mr-3 md:ml-10">
-                  Visit
-                </button>
+              <a
+                className="bg-blue-700 w-20 h-10 text-white font-light text-sm rounded-3xl mr-3 md:ml-10"
+                href={html_url}
+                target="_blank"
+              >
+                Visit
               </a>
             </div>
           );

@@ -25,7 +25,9 @@ function AppProvider({ children }) {
       const followersDatas = await followersRes.json();
       setGithubFollowers(followersDatas);
     }
-    const reposRes = await fetch(`${githubApiUrl}/users/${user}/repos`);
+    const reposRes = await fetch(
+      `${githubApiUrl}/users/${user}/repos?sort=created`
+    );
     if (reposRes.status === 200) {
       const reposDatas = await reposRes.json();
       setGithubRepos(reposDatas);

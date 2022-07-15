@@ -11,7 +11,7 @@ function Navbar() {
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <a href="#" className="flex gap-2 items-center">
             <GoMarkGithub className="text-white" size={25} />
-            <span className="self-center text-sm md:text-lg font-semibold whitespace-nowrap dark:text-white">
+            <span className="text-sm md:text-lg font-semibold text-white">
               Github Search
             </span>
           </a>
