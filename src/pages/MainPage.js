@@ -3,17 +3,23 @@ import SearchBar from '../components/SearchBar';
 import MainInfos from '../components/MainInfos';
 import MainUser from '../components/MainUser';
 import Follows from '../components/Follows';
-import Repos from '../components/Repos';
+import Charts from '../components/Charts';
 import loadingSvg from '../images/loading.svg';
 import { useAppContext } from '../context/context';
 function MainPage() {
-  const { isLoading } = useAppContext();
-  if (isLoading) {
+  const { isLoading, error } = useAppContext();
+  if (isLoading || error) {
     return (
       <div>
         <Navbar />
         <SearchBar />
-        <img className="mx-auto w-36" src={loadingSvg} alt="loading_svg"></img>
+        {!error && (
+          <img
+            className="mx-auto w-36 mt-20"
+            src={loadingSvg}
+            alt="loading_svg"
+          ></img>
+        )}
       </div>
     );
   }
@@ -24,7 +30,7 @@ function MainPage() {
       <MainInfos />
       <MainUser />
       <Follows />
-      <Repos />
+      <Charts />
     </div>
   );
 }

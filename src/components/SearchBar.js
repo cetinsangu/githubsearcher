@@ -3,14 +3,14 @@ import { useState } from 'react';
 import { useAppContext } from '../context/context';
 function SearchBar() {
   const [user, setUser] = useState('');
-  const { fetchGithubDatas } = useAppContext();
+  const { fetchGithubDatas, error } = useAppContext();
   const handleSubmit = (e) => {
     e.preventDefault();
     user && fetchGithubDatas(user);
     setUser('');
   };
   return (
-    <div className="relative w-2/3 md:w-4/5 rounded-3xl mt-10 mx-auto  max-w-screen-xl">
+    <div className="relative w-2/3 md:w-4/5 rounded-3xl mt-10 mx-auto max-w-screen-xl">
       <form onSubmit={handleSubmit}>
         <div className="flex justify-center items-center">
           <input
@@ -25,6 +25,11 @@ function SearchBar() {
           </button>
         </div>
       </form>
+      {error && (
+        <div className="text-red-500 text-center mt-3 text-lg font-medium">
+          No account found. Please try again.
+        </div>
+      )}
     </div>
   );
 }

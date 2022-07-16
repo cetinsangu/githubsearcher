@@ -25,7 +25,6 @@ export function MostUsedLangs() {
   const langs = Object.values(calcLangs);
 
   const labels = Object.keys(calcLangs);
-
   const data = {
     labels: labels,
     datasets: [
@@ -46,7 +45,13 @@ export function MostUsedLangs() {
 
   return (
     <div className="h-96 w-72">
-      <Pie data={data} options={options} />
+      {langs.length >= 1 ? (
+        <Pie data={data} options={options} />
+      ) : (
+        <div className="text-center text-xl text-gray-500">
+          No language found
+        </div>
+      )}
     </div>
   );
 }

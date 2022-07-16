@@ -57,7 +57,13 @@ export function MostStarredRepos() {
   };
   return (
     <div className="h-96 w-72">
-      <Bar data={data} options={options} />
+      {labels.length >= 1 ? (
+        <Bar data={data} options={options} />
+      ) : (
+        <div className="text-center text-xl text-gray-500">
+          No language found
+        </div>
+      )}
     </div>
   );
 }

@@ -16,40 +16,44 @@ function AppProvider({ children }) {
   const [githubFollowing, setGithubFollowing] = useState(defFollowing);
   const [githubRepos, setGithubRepos] = useState(defRepos);
   const [latestGithubRepos, setLatestGithubRepos] = useState(defLatestRepos);
+  const [error, setError] = useState(false);
 
   const fetchGithubDatas = async (user) => {
     setIsLoading(true);
+    setError(false);
     const userRes = await fetch(`${githubApiUrl}/users/${user}`);
     if (userRes.status === 200) {
       const userDatas = await userRes.json();
       setGithubUser(userDatas);
+      const followersRes = await fetch(
+        `${githubApiUrl}/users/${user}/followers`
+      );
+      if (followersRes.status === 200) {
+        const followersDatas = await followersRes.json();
+        setGithubFollowers(followersDatas);
+      }
+      const followingRes = await fetch(
+        `${githubApiUrl}/users/${user}/following`
+      );
+      if (followingRes.status === 200) {
+        const followingData = await followingRes.json();
+        setGithubFollowing(followingData);
+      }
+      const reposRes = await fetch(`${githubApiUrl}/users/${user}/repos`);
+      if (reposRes.status === 200) {
+        const reposDatas = await reposRes.json();
+        setGithubRepos(reposDatas);
+      }
+      const latestRepos = await fetch(
+        `${githubApiUrl}/users/${user}/repos?sort=created`
+      );
+      if (latestRepos.status === 200) {
+        const latestReposDatas = await latestRepos.json();
+        setLatestGithubRepos(latestReposDatas);
+      }
+    } else {
+      setError(true);
     }
-    const followersRes = await fetch(`${githubApiUrl}/users/${user}/followers`);
-    if (followersRes.status === 200) {
-      const followersDatas = await followersRes.json();
-      setGithubFollowers(followersDatas);
-    }
-    const followingRes = await fetch(`${githubApiUrl}/users/${user}/following`);
-    if (followingRes.status === 200) {
-      const followingData = await followingRes.json();
-      setGithubFollowing(followingData);
-    }
-    const reposRes = await fetch(`${githubApiUrl}/users/${user}/repos`);
-    if (reposRes.status === 200) {
-      const reposDatas = await reposRes.json();
-      setGithubRepos(reposDatas);
-    }
-    const latestRepos = await fetch(
-      `${githubApiUrl}/users/${user}/repos?sort=created`
-    );
-    if (latestRepos.status === 200) {
-      const latestReposDatas = await latestRepos.json();
-      setLatestGithubRepos(latestReposDatas);
-    }
-
-    // setGithubUser(userData);
-    // setGithubFollowers(followersData);
-    // setGithubRepos(reposData);
     setIsLoading(false);
   };
 
@@ -63,6 +67,7 @@ function AppProvider({ children }) {
         githubRepos,
         latestGithubRepos,
         fetchGithubDatas,
+        error,
       }}
     >
       {children}
