@@ -27,7 +27,7 @@ function MainInfos() {
   ];
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 place-items-center mt-10 gap-y-5 max-w-screen-xl mx-auto">
+    <div className="grid grid-cols-2 sm:grid-cols-4 place-items-center mt-10 gap-y-3 max-w-screen-xl mx-auto">
       {items.map((item) => {
         return (
           <div

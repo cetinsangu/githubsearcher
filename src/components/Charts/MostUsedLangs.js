@@ -11,7 +11,7 @@ const options = {
 };
 
 export function MostUsedLangs() {
-  const { isLoading, githubRepos } = useAppContext();
+  const { githubRepos } = useAppContext();
   const calcLangs = githubRepos.reduce((acc, curr) => {
     const { language } = curr;
     if (!language) return acc;
@@ -22,7 +22,6 @@ export function MostUsedLangs() {
     }
     return acc;
   }, {});
-
   const langs = Object.values(calcLangs);
 
   const labels = Object.keys(calcLangs);
@@ -31,7 +30,6 @@ export function MostUsedLangs() {
     labels: labels,
     datasets: [
       {
-        label: '# of Votes',
         offset: 0,
         data: langs,
         backgroundColor: [

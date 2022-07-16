@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import defUser from '../components/defaultDatas/defUser';
 import defFollowers from '../components/defaultDatas/defFollowers';
 import defRepos from '../components/defaultDatas/defRepos';
+import defLatestRepos from '../components/defaultDatas/defLatestRepos';
 import defFollowing from '../components/defaultDatas/defFollowing';
 
 const githubApiUrl = 'https://api.github.com';
@@ -14,6 +15,7 @@ function AppProvider({ children }) {
   const [githubFollowers, setGithubFollowers] = useState(defFollowers);
   const [githubFollowing, setGithubFollowing] = useState(defFollowing);
   const [githubRepos, setGithubRepos] = useState(defRepos);
+  const [latestGithubRepos, setLatestGithubRepos] = useState(defLatestRepos);
 
   const fetchGithubDatas = async (user) => {
     setIsLoading(true);
@@ -32,12 +34,17 @@ function AppProvider({ children }) {
       const followingData = await followingRes.json();
       setGithubFollowing(followingData);
     }
-    const reposRes = await fetch(
-      `${githubApiUrl}/users/${user}/repos?sort=created`
-    );
+    const reposRes = await fetch(`${githubApiUrl}/users/${user}/repos`);
     if (reposRes.status === 200) {
       const reposDatas = await reposRes.json();
       setGithubRepos(reposDatas);
+    }
+    const latestRepos = await fetch(
+      `${githubApiUrl}/users/${user}/repos?sort=created`
+    );
+    if (latestRepos.status === 200) {
+      const latestReposDatas = await latestRepos.json();
+      setLatestGithubRepos(latestReposDatas);
     }
 
     // setGithubUser(userData);
@@ -54,6 +61,7 @@ function AppProvider({ children }) {
         githubFollowers,
         githubFollowing,
         githubRepos,
+        latestGithubRepos,
         fetchGithubDatas,
       }}
     >
