@@ -54,6 +54,9 @@ export function MostStarredRepos() {
     },
     responsive: true,
     maintainAspectRatio: false,
+    animation: {
+      delay: 1200,
+    },
   };
   return (
     <div className="h-96 w-72">

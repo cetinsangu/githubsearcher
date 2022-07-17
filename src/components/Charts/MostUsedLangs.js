@@ -8,6 +8,9 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const options = {
   responsive: true,
   maintainAspectRatio: false,
+  animation: {
+    delay: 1200, // change delay to suit your needs.
+  },
 };
 
 export function MostUsedLangs() {

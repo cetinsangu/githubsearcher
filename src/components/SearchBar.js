@@ -1,10 +1,17 @@
 import searchIcon from '../images/searchIcon.png';
 import { useState } from 'react';
 import { useAppContext } from '../context/context';
-
+import { motion } from 'framer-motion';
 function SearchBar() {
+  const variants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  };
   const [user, setUser] = useState('');
-  const { fetchGithubDatas, error } = useAppContext();
+  const { fetchGithubDatas } = useAppContext();
   const handleSubmit = (e) => {
     e.preventDefault();
     user && fetchGithubDatas(user);
@@ -12,7 +19,13 @@ function SearchBar() {
   };
   return (
     <div className="relative w-2/3 md:w-4/5 rounded-3xl mt-10 mx-auto max-w-screen-xl">
-      <form onSubmit={handleSubmit}>
+      <motion.form
+        initial="hidden"
+        animate="visible"
+        transition={{ duration: 0.5 }}
+        variants={variants}
+        onSubmit={handleSubmit}
+      >
         <div className="flex justify-center items-center">
           <input
             type="text"
@@ -25,7 +38,7 @@ function SearchBar() {
             <img className="h-4 w-4" src={searchIcon} alt="search_icon" />
           </button>
         </div>
-      </form>
+      </motion.form>
     </div>
   );
 }
