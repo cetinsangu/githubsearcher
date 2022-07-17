@@ -5,7 +5,7 @@ function LastRepos() {
   const repos = latestGithubRepos.slice(0, 10);
 
   return (
-    <div className="mt-20 w-full relative pb-3 rounded-tl-none rounded-xl flex flex-col bg-white font-roboto before:content-['Latest_Repos'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black before:bg-white before:px-5 before:py-1 before:border before:rounded-t-lg before:font-light h-80">
+    <div className="mt-20 relative pb-3 rounded-tl-none rounded-xl flex flex-col bg-white font-roboto before:content-['Latest_Repos'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black before:bg-white before:px-5 before:py-1 before:border before:rounded-t-lg before:font-light h-80">
       <div className="overflow-scroll">
         {repos.map((repo) => {
           const {

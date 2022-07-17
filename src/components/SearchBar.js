@@ -1,6 +1,7 @@
 import searchIcon from '../images/searchIcon.png';
 import { useState } from 'react';
 import { useAppContext } from '../context/context';
+
 function SearchBar() {
   const [user, setUser] = useState('');
   const { fetchGithubDatas, error } = useAppContext();
@@ -25,11 +26,6 @@ function SearchBar() {
           </button>
         </div>
       </form>
-      {error && (
-        <div className="text-red-500 text-center mt-3 text-lg font-medium">
-          No account found. Please try again.
-        </div>
-      )}
     </div>
   );
 }
