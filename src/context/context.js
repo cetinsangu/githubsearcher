@@ -24,13 +24,11 @@ function AppProvider({ children }) {
   const remainingReq = async () => {
     const response = await fetch(`${githubApiUrl}/rate_limit`);
     const data = await response.json();
-    if (data.resources.core.remaining > 0) {
-      setRemaining(data.resources.core.remaining);
-    } else {
+    if (data.resources.core.remaining === 0) {
       toast.error(
-        'You have reached the limit of requests. Please try again later.'
+        'You have reached the limit of requests. Please try 1 hour later.'
       );
-      setError(true);
+      setError(false);
     }
   };
   const fetchGithubDatas = async (user) => {
@@ -54,21 +52,26 @@ function AppProvider({ children }) {
         setGithubFollowing(followingDatas);
         setGithubRepos(reposDatas);
         setLatestGithubRepos(latestReposDatas);
-        toast.success(
-          `Infos loaded successfully. ${remaining} calls remaining.`
-        );
+        toast.success('Infos loaded successfully.', {
+          position: 'top-right',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
     } else {
       setError(true);
       remainingReq();
-      remaining !== 0 &&
-        toast.error(`User not found. ${remaining} calls remaining.`);
+      if (userRes.status === 404) {
+        toast.error('User not found.');
+      }
     }
     setIsLoading(false);
   };
-  useEffect(() => {
-    remaining >= 1 && remainingReq();
-  }, []);
+
   return (
     <AppContext.Provider
       value={{
