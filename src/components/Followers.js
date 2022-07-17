@@ -63,9 +63,20 @@ function Followers() {
                 />
                 <div className="flex flex-col ml-4 justify-center xl:w-96">
                   <div className="text-lg font-bold">{login}</div>
-                  <div className="hidden md:flex text-sm font-thin text-gray-500 w-48 ">
-                    <a href={html_url} target="_blank">
+                  <div className="md:flex text-sm font-thin text-gray-500 w-48 ">
+                    <a
+                      className="hidden md:flex"
+                      href={html_url}
+                      target="_blank"
+                    >
                       {html_url}
+                    </a>
+                    <a
+                      className="md:hidden font-normal text-sky-500 text-xs"
+                      href={html_url}
+                      target="_blank"
+                    >
+                      Github Profile
                     </a>
                   </div>
                 </div>

@@ -19,7 +19,7 @@ function Charts() {
         opacity: 1,
         y: 0,
         transition: {
-          delay: 2.5,
+          delay: 1.7,
         },
       },
     };

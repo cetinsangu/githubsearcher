@@ -9,7 +9,7 @@ const options = {
   responsive: true,
   maintainAspectRatio: false,
   animation: {
-    delay: 1200, // change delay to suit your needs.
+    delay: 2500, // change delay to suit your needs.
   },
 };
 
