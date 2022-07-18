@@ -1,9 +1,10 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
 import defUser from '../components/defaultDatas/defUser';
 import defFollowers from '../components/defaultDatas/defFollowers';
 import defRepos from '../components/defaultDatas/defRepos';
 import defLatestRepos from '../components/defaultDatas/defLatestRepos';
 import defFollowing from '../components/defaultDatas/defFollowing';
+import defSubscribedRepos from '../components/defaultDatas/defSubscribedRepos';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,7 +19,7 @@ function AppProvider({ children }) {
   const [githubFollowing, setGithubFollowing] = useState(defFollowing);
   const [githubRepos, setGithubRepos] = useState(defRepos);
   const [latestGithubRepos, setLatestGithubRepos] = useState(defLatestRepos);
-  const [remaining, setRemaining] = useState(0);
+  const [subscribedRepos, setSubscribedRepos] = useState(defSubscribedRepos);
 
   const [error, setError] = useState(null);
   const remainingReq = async () => {
@@ -44,17 +45,23 @@ function AppProvider({ children }) {
         fetch(`${githubApiUrl}/users/${user}/following`),
         fetch(`${githubApiUrl}/users/${user}/repos`),
         fetch(`${githubApiUrl}/users/${user}/repos?sort=created`),
+        fetch(`${githubApiUrl}/users/${user}/subscriptions`),
       ]).then(async (responses) => {
-        console.log(responses);
-        const [followersDatas, followingDatas, reposDatas, latestReposDatas] =
-          await Promise.all(responses.map((response) => response.json()));
+        const [
+          followersDatas,
+          followingDatas,
+          reposDatas,
+          latestReposDatas,
+          subscribedReposDatas,
+        ] = await Promise.all(responses.map((response) => response.json()));
         setGithubFollowers(followersDatas);
         setGithubFollowing(followingDatas);
         setGithubRepos(reposDatas);
         setLatestGithubRepos(latestReposDatas);
+        setSubscribedRepos(subscribedReposDatas);
         toast.success('Infos loaded successfully.', {
           position: 'top-right',
-          autoClose: 2000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -81,6 +88,7 @@ function AppProvider({ children }) {
         githubFollowing,
         githubRepos,
         latestGithubRepos,
+        subscribedRepos,
         fetchGithubDatas,
         error,
       }}

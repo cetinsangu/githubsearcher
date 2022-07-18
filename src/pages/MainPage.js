@@ -4,6 +4,7 @@ import MainInfos from '../components/MainInfos';
 import MainUser from '../components/MainUser';
 import Follows from '../components/Follows';
 import Charts from '../components/Charts';
+import Footer from '../components/Footer';
 import loadingSvg from '../images/loading.svg';
 import { useAppContext } from '../context/context';
 function MainPage() {
@@ -31,6 +32,7 @@ function MainPage() {
       <MainUser />
       <Follows />
       <Charts />
+      <Footer />
     </div>
   );
 }

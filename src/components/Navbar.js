@@ -1,5 +1,4 @@
-import { NavLink } from 'react-router-dom';
-import { GiHamburgerMenu } from 'react-icons/gi';
+import { Link } from 'react-router-dom';
 import { GoMarkGithub } from 'react-icons/go';
 import { useState } from 'react';
 
@@ -9,12 +8,12 @@ function Navbar() {
     <header>
       <nav className="border-b border-gray-400 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-          <a href="#" className="flex gap-2 items-center">
+          <Link to={'/'} className="flex gap-2 items-center">
             <GoMarkGithub className="text-white" size={25} />
             <span className="text-sm md:text-lg font-semibold text-white">
               Github Search
             </span>
-          </a>
+          </Link>
           <div className="flex items-center lg:order-2">
             <a
               href="#"

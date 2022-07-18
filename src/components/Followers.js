@@ -24,7 +24,6 @@ function Followers() {
         scale: 1,
         transition: {
           duration: 0.5,
-
           delay: 2,
           delayChildren: 2.3,
           staggerChildren: 0.3,
@@ -44,7 +43,8 @@ function Followers() {
   return (
     <motion.div
       variants={containerVariants}
-      animate="visible"
+      {...(isMobile ? { whileInView: 'visible' } : { animate: 'visible' })}
+      viewport={{ once: true }}
       initial="hidden"
       className="mt-10 relative rounded-tl-none rounded-xl flex flex-col bg-white font-roboto before:content-['Followers'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black before:bg-white before:px-5 before:py-1 before:border before:rounded-t-lg before:font-light h-80"
     >

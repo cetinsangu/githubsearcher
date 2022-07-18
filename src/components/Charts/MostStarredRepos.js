@@ -21,14 +21,11 @@ export function MostStarredRepos() {
   const { githubRepos } = useAppContext();
 
   const calcMostStars = githubRepos
-    .map((repo) => {
-      return { stars: repo.stargazers_count, repo_name: repo.name };
-    })
-    .filter((repo) => repo.stars > 0)
-    .sort((a, b) => b.stars - a.stars)
+    .filter((repo) => repo.stargazers_count > 0)
+    .sort((a, b) => b.stargazers_count - a.stargazers_count)
     .slice(0, 5);
-  const labels = calcMostStars.map((repo) => repo.repo_name);
-  const mostStars = calcMostStars.map((repo) => repo.stars);
+  const labels = calcMostStars.map((repo) => repo.name);
+  const mostStars = calcMostStars.map((repo) => repo.stargazers_count);
   const data = {
     labels,
     datasets: [
@@ -52,19 +49,19 @@ export function MostStarredRepos() {
         text: 'Most Starred Repos',
       },
     },
+    animation: {
+      delay: 2200,
+    },
     responsive: true,
     maintainAspectRatio: false,
-    animation: {
-      delay: 1200,
-    },
   };
   return (
-    <div className="h-96 w-72">
+    <div className="h-96 w-full sm:w-[450px]">
       {labels.length >= 1 ? (
         <Bar data={data} options={options} />
       ) : (
         <div className="text-center text-xl text-gray-500">
-          No language found
+          There are no repos with more than 0 star, YET.
         </div>
       )}
     </div>

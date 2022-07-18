@@ -45,8 +45,9 @@ function Following() {
   return (
     <motion.div
       variants={containerVariants}
+      {...(isMobile ? { whileInView: 'visible' } : { animate: 'visible' })}
+      viewport={{ once: true }}
       initial="hidden"
-      animate="visible"
       className="mt-20 md:mt-10 relative rounded-tl-none rounded-xl flex flex-col bg-white font-roboto before:content-['Followings'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black before:bg-white before:px-5 before:py-1 before:border before:rounded-t-lg before:font-light h-80"
     >
       <div className="p-3 overflow-scroll">

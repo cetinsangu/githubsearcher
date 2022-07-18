@@ -23,7 +23,6 @@ function LastRepos() {
         scale: 1,
         transition: {
           duration: 0.5,
-
           delay: 1.5,
           delayChildren: 1.7,
           staggerChildren: 0.5,
@@ -35,6 +34,7 @@ function LastRepos() {
   const item = {
     hidden: { y: 50, opacity: 0 },
     visible: {
+      transition: { duration: 0.3 },
       y: 0,
       opacity: 1,
     },
@@ -46,11 +46,12 @@ function LastRepos() {
   return (
     <motion.div
       variants={containerVariants}
+      {...(isMobile ? { whileInView: 'visible' } : { animate: 'visible' })}
+      viewport={{ once: true }}
       initial="hidden"
-      animate="visible"
-      className="mt-20 relative pb-3 rounded-tl-none rounded-xl flex flex-col bg-white font-roboto before:content-['Latest_Repos'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black before:bg-white before:px-5 before:py-1 before:border before:rounded-t-lg before:font-light h-80"
+      className="mt-20 relative pb-3 rounded-tl-none rounded-xl flex flex-col bg-white font-roboto before:content-['Latest_Repos'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black before:bg-white before:px-5 before:py-1 before:border before:rounded-t-lg before:font-light h-80 xs:w-full"
     >
-      <div className=" overflow-scroll">
+      <div className="overflow-y-scroll overflow-x-hidden">
         {repos.map((repo) => {
           const {
             name,
@@ -58,40 +59,43 @@ function LastRepos() {
             html_url,
             description,
             stargazers_count,
-            watchers_count,
             forks_count,
             fork,
           } = repo;
           return (
             <motion.div
               variants={item}
+              {...(isMobile
+                ? { whileInView: 'visible' }
+                : { animate: 'visible' })}
+              viewport={{ once: true }}
               className="item pt-3 border-b border-gray-200"
               key={id}
             >
-              <div className="pt-2 flex flex-row">
-                <div className="flex flex-col ml-4 py-2 px-2 w-2/5">
+              <div className="pt-2 flex sm:flex-row flex-col  sm:items-baseline">
+                <div className="flex flex-col  sm:items-baseline sm:ml-4 py-2 px-2 w-full items-center sm:w-2/5">
                   <div className="text-lg font-bold">
                     {fork ? `${name} (forked)` : name}
                   </div>
-                  <div className="mt-2 text-sm font-normal text-gray-600">
+                  <div className="w-[300px] sm:w-full mt-2 text-sm font-normal text-center sm:text-start text-gray-600">
                     {description
                       ? description
                       : 'This repo has no description...'}
                   </div>
                 </div>
-                <div className="w-3/5 flex flex-col items-center md:items-end md:mr-3">
+                <div className="mt-3 sm:mt-0 sm:w-3/5 flex flex-col items-center md:items-end md:mr-3">
                   <div className="flex flex-row  gap-2">
-                    <div className="rounded-full h-14 w-14 bg-blue-700 text-white flex flex-col items-center text-2xl justify-center">
+                    <div
+                      className={`rounded-full h-16 w-16 bg-blue-700 text-white flex flex-col items-center justify-center`}
+                    >
                       {forks_count}
-                      <span className="text-xs font-extralight">forks</span>
+                      <span className="text-sm font-extralight">forks</span>
                     </div>
-                    <div className="rounded-full h-14 w-14 bg-blue-700 text-white flex flex-col items-center text-2xl justify-center">
+                    <div
+                      className={`rounded-full h-16 w-16 bg-blue-700 text-white flex flex-col items-center justify-center`}
+                    >
                       {stargazers_count}
-                      <span className="text-xs font-extralight">stars</span>
-                    </div>
-                    <div className="rounded-full h-14 w-14 bg-blue-700 text-white flex flex-col items-center text-2xl justify-center">
-                      {watchers_count}
-                      <span className="text-xxs font-extralight">watchers</span>
+                      <span className="text-sm font-extralight">stars</span>
                     </div>
                   </div>
                   <a

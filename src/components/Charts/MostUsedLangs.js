@@ -5,16 +5,16 @@ import { useAppContext } from '../../context/context';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const options = {
-  responsive: true,
-  maintainAspectRatio: false,
-  animation: {
-    delay: 2500, // change delay to suit your needs.
-  },
-};
-
 export function MostUsedLangs() {
   const { githubRepos } = useAppContext();
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    animation: {
+      delay: 2200,
+    },
+  };
   const calcLangs = githubRepos.reduce((acc, curr) => {
     const { language } = curr;
     if (!language) return acc;
@@ -47,7 +47,7 @@ export function MostUsedLangs() {
   };
 
   return (
-    <div className="h-96 w-72">
+    <div className="h-96 w-full">
       {langs.length >= 1 ? (
         <Pie data={data} options={options} />
       ) : (
