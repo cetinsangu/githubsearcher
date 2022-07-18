@@ -22,6 +22,7 @@ function UserBio() {
       opacity: 1,
       scale: 1,
       transition: {
+        duration: 0.5,
         delay: 1,
         delayChildren: 1.3,
         staggerChildren: 0.4,

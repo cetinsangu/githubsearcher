@@ -26,27 +26,38 @@ function MainInfos() {
       value: public_gists,
     },
   ];
-
-  const circleItem = {
-    hidden: { y: 20, opacity: 0 },
+  const container = {
+    hidden: { opacity: 0, scale: 0 },
     visible: {
       opacity: 1,
-      y: 0,
+      scale: 1,
       transition: {
-        delay: 0.5,
+        delayChildren: 0.5,
+        staggerChildren: 0.3,
       },
     },
   };
+
+  const circleItem = {
+    hidden: { x: -100, opacity: 0 },
+    visible: {
+      opacity: 1,
+      x: 0,
+    },
+  };
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 place-items-center mt-10 gap-y-3 max-w-screen-xl mx-auto">
+    <motion.div
+      variants={container}
+      initial="hidden"
+      animate="visible"
+      className="grid grid-cols-2 sm:grid-cols-4 place-items-center mt-10 gap-y-3 max-w-screen-xl mx-auto"
+    >
       {items.map((item) => {
         return (
           <motion.div
             variants={circleItem}
-            initial="hidden"
-            animate="visible"
             key={item.id}
-            className="w-24 h-24 md:w-32 md:h-32 bg-white rounded-full flex flex-col items-center justify-center font-roboto border-2 border-blue-400 hover:border-4 hover:border-blue-700 transition-all duration-75"
+            className="w-24 h-24 md:w-32 md:h-32 bg-white rounded-full flex flex-col items-center justify-center font-roboto border-2 border-blue-400 hover:border-4 hover:border-blue-700"
           >
             <div
               className={`${
@@ -64,7 +75,7 @@ function MainInfos() {
           </motion.div>
         );
       })}
-    </div>
+    </motion.div>
   );
 }
 

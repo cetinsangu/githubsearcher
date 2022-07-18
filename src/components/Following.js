@@ -25,8 +25,10 @@ function Following() {
         opacity: 1,
         scale: 1,
         transition: {
-          delay: 2.3,
-          delayChildren: 2.4,
+          duration: 0.5,
+
+          delay: 2,
+          delayChildren: 2.3,
           staggerChildren: 0.3,
         },
       },

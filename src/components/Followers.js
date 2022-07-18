@@ -23,6 +23,8 @@ function Followers() {
         opacity: 1,
         scale: 1,
         transition: {
+          duration: 0.5,
+
           delay: 2,
           delayChildren: 2.3,
           staggerChildren: 0.3,
