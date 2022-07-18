@@ -1,7 +1,10 @@
 // 20220717185118
 // https://api.github.com/users/cetinsangu
 
-export default {
+export default // 20220719010202
+// https://api.github.com/users/cetinsangu
+
+{
   login: 'cetinsangu',
   id: 41289806,
   node_id: 'MDQ6VXNlcjQxMjg5ODA2',
@@ -22,10 +25,10 @@ export default {
     'https://api.github.com/users/cetinsangu/received_events',
   type: 'User',
   site_admin: false,
-  name: 'Cetin Sangu',
-  company: null,
-  blog: '',
-  location: null,
+  name: 'Çetin Sanğu',
+  company: 'Open to Work',
+  blog: 'www.cetinsangu.com',
+  location: 'Turkey',
   email: null,
   hireable: null,
   bio: "I'm Cetin, 23 years old and living in Kars/TURKEY. I'm bachelor of law. My primary field of interest is creating websites. Focusing ReactJS right now. ",
@@ -33,7 +36,7 @@ export default {
   public_repos: 28,
   public_gists: 0,
   followers: 2,
-  following: 4,
+  following: 3,
   created_at: '2018-07-16T10:35:26Z',
-  updated_at: '2022-06-02T10:55:49Z',
+  updated_at: '2022-07-17T21:43:43Z',
 };

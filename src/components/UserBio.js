@@ -87,9 +87,13 @@ function UserBio() {
         className="flex gap-2 mt-5 font-thin text-sm items-center"
       >
         <img src={websiteLogo} alt="website_logo" />
-        <a href={blog ? `https://${blog}` : '#'} target="_blank">
-          {blog || 'No website'}
-        </a>
+        {blog ? (
+          <a href={`https://${blog}`} target="_blank">
+            {blog}
+          </a>
+        ) : (
+          'No website'
+        )}
       </motion.p>
       <motion.p
         variants={extraSubItem}
