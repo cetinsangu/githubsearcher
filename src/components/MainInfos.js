@@ -50,7 +50,7 @@ function MainInfos() {
       variants={container}
       initial="hidden"
       animate="visible"
-      className="grid grid-cols-2 sm:grid-cols-4 place-items-center mt-10 gap-y-3 max-w-screen-xl mx-auto"
+      className="grid grid-cols-2 sm:grid-cols-4 place-items-center mt-10 gap-y-5 max-w-screen-xl mx-16 sm:mx-auto"
     >
       {items.map((item) => {
         return (
