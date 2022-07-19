@@ -7,12 +7,12 @@ function MainInfos() {
   const items = [
     {
       id: 1,
-      name: 'repos',
+      name: public_repos > 1 ? 'repos' : 'repo',
       value: public_repos,
     },
     {
       id: 2,
-      name: 'followers',
+      name: followers > 1 ? 'followers' : 'follower',
       value: followers,
     },
     {
@@ -22,7 +22,7 @@ function MainInfos() {
     },
     {
       id: 4,
-      name: 'gists',
+      name: public_gists > 1 ? 'gists' : 'gist',
       value: public_gists,
     },
   ];

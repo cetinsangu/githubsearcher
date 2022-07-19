@@ -88,7 +88,7 @@ export function MostForkedRepos() {
         <Bar data={data} options={options} />
       ) : (
         <div className="text-center text-xl text-gray-500">
-          There are no repos with more than 0 forks, YET.
+          There are no repos with more than 0 fork, YET.
         </div>
       )}
     </div>

@@ -52,64 +52,75 @@ function LastRepos() {
       className="mt-20 relative pb-3 rounded-tl-none rounded-xl flex flex-col bg-white font-roboto before:content-['Latest_Repos'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black before:bg-white before:px-5 before:py-1 before:border before:rounded-t-lg before:font-light h-80 xs:w-full"
     >
       <div className="overflow-y-scroll overflow-x-hidden">
-        {repos.map((repo) => {
-          const {
-            name,
-            id,
-            html_url,
-            description,
-            stargazers_count,
-            forks_count,
-            fork,
-          } = repo;
-          return (
-            <motion.div
-              variants={item}
-              {...(isMobile
-                ? { whileInView: 'visible' }
-                : { animate: 'visible' })}
-              viewport={{ once: true }}
-              className="item pt-3 border-b border-gray-200"
-              key={id}
-            >
-              <div className="pt-2 flex sm:flex-row flex-col  sm:items-baseline">
-                <div className="flex flex-col  sm:items-baseline sm:ml-4 py-2 px-2 w-full items-center sm:w-2/5">
-                  <div className="text-lg font-bold">
-                    {fork ? `${name} (forked)` : name}
-                  </div>
-                  <div className="w-[300px] sm:w-full mt-2 text-sm font-normal text-center sm:text-start text-gray-600">
-                    {description
-                      ? description
-                      : 'This repo has no description...'}
-                  </div>
-                </div>
-                <div className="mt-3 sm:mt-0 sm:w-3/5 flex flex-col items-center md:items-end md:mr-3">
-                  <div className="flex flex-row  gap-2">
-                    <div
-                      className={`rounded-full h-16 w-16 bg-blue-700 text-white flex flex-col items-center justify-center`}
-                    >
-                      {forks_count}
-                      <span className="text-sm font-extralight">forks</span>
+        {repos.length >= 1 ? (
+          repos.map((repo) => {
+            const {
+              name,
+              id,
+              html_url,
+              description,
+              stargazers_count,
+              forks_count,
+              fork,
+            } = repo;
+
+            return (
+              <motion.div
+                variants={item}
+                {...(isMobile
+                  ? { whileInView: 'visible' }
+                  : { animate: 'visible' })}
+                viewport={{ once: true }}
+                className="item pt-3 border-b border-gray-200"
+                key={id}
+              >
+                <div className="pt-2 flex sm:flex-row flex-col  sm:items-baseline">
+                  <div className="flex flex-col  sm:items-baseline sm:ml-4 py-2 px-2 w-full items-center sm:w-2/5">
+                    <div className="text-lg font-bold">
+                      {fork ? `${name} (forked)` : name}
                     </div>
-                    <div
-                      className={`rounded-full h-16 w-16 bg-blue-700 text-white flex flex-col items-center justify-center`}
-                    >
-                      {stargazers_count}
-                      <span className="text-sm font-extralight">stars</span>
+                    <div className="w-[300px] sm:w-full mt-2 text-sm font-normal text-center sm:text-start text-gray-600">
+                      {description
+                        ? description
+                        : 'This repo has no description...'}
                     </div>
                   </div>
-                  <a
-                    className=" bg-slate-800 border-2 border-blue-700 text-white text-center font-light text-xl my-5 px-4 py-1 rounded-xl hover:bg-white hover:text-slate-800 hover:border-blue-700 transition-all duration-200"
-                    href={html_url}
-                    target="_blank"
-                  >
-                    Go to Repo
-                  </a>
+                  <div className="mt-3 sm:mt-0 sm:w-3/5 flex flex-col items-center md:items-end md:mr-3">
+                    <div className="flex flex-row  gap-2">
+                      <div
+                        className={`rounded-full h-16 w-16 bg-blue-700 text-white flex flex-col items-center justify-center`}
+                      >
+                        {forks_count}
+                        <span className="text-sm font-extralight">
+                          {forks_count > 1 ? 'forks' : 'fork'}
+                        </span>
+                      </div>
+                      <div
+                        className={`rounded-full h-16 w-16 bg-blue-700 text-white flex flex-col items-center justify-center`}
+                      >
+                        {stargazers_count}
+                        <span className="text-sm font-extralight">
+                          {stargazers_count > 1 ? 'stars' : 'star'}
+                        </span>
+                      </div>
+                    </div>
+                    <a
+                      className=" bg-slate-800 border-2 border-blue-700 text-white text-center font-light text-xl my-5 px-4 py-1 rounded-xl hover:bg-white hover:text-slate-800 hover:border-blue-700 transition-all duration-200"
+                      href={html_url}
+                      target="_blank"
+                    >
+                      Go to Repo
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          );
-        })}
+              </motion.div>
+            );
+          })
+        ) : (
+          <div className="text-center text-xl text-gray-500 p-3">
+            No Repos Found
+          </div>
+        )}
       </div>
     </motion.div>
   );

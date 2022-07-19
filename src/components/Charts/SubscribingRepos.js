@@ -90,13 +90,17 @@ export function SubscribingRepos() {
                         className={`rounded-full h-14 w-14 bg-blue-700 text-white flex flex-col items-center justify-center`}
                       >
                         {forks_count}
-                        <span className="text-xs font-extralight">forks</span>
+                        <span className="text-xs font-extralight">
+                          {forks_count > 1 ? 'forks' : 'fork'}
+                        </span>
                       </div>
                       <div
                         className={`rounded-full h-14 w-14 bg-blue-700 text-white flex flex-col items-center justify-center`}
                       >
                         {stargazers_count}
-                        <span className="text-xs font-extralight">stars</span>
+                        <span className="text-xs font-extralight">
+                          {stargazers_count > 1 ? 'stars' : 'star'}
+                        </span>
                       </div>
                     </div>
                     <a
@@ -112,8 +116,8 @@ export function SubscribingRepos() {
             );
           })
         ) : (
-          <div className="text-center text-gray-600">
-            No subscribed repos, YET.
+          <div className="text-center text-xl p-6 text-gray-500">
+            There are not subscribed any repos YET.
           </div>
         )}
       </div>
