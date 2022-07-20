@@ -94,7 +94,7 @@ function SignIn() {
             <Link
               onClick={() => {
                 toast.success('Logged in successfully as Tester', {
-                  autoClose: 1000,
+                  autoClose: 1500,
                 });
                 setUser(true);
               }}
