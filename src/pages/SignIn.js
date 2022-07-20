@@ -11,7 +11,13 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function SignIn() {
   const navigate = useNavigate();
-  const { signIn, signInWithGoogle, signInWithGithub, setUser } = useAuth();
+  const {
+    signIn,
+    signInWithGoogle,
+    signInWithGithub,
+    signInWithTwitter,
+    setUser,
+  } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -72,11 +78,7 @@ function SignIn() {
                 <AiOutlineGoogle size={30} />
               </a>
               <a
-                onClick={() =>
-                  toast('Will be added!', {
-                    autoClose: 1000,
-                  })
-                }
+                onClick={signInWithTwitter}
                 className="border-gray-400 border p-2 rounded-full"
                 href="#"
               >
@@ -90,7 +92,12 @@ function SignIn() {
               Sign Up
             </Link>
             <Link
-              onClick={() => setUser(true)}
+              onClick={() => {
+                toast.success('Logged in successfully as Tester', {
+                  autoClose: 1000,
+                });
+                setUser(true);
+              }}
               to={'/'}
               className="w-full p-4 mt-7 bg-red-700 text-white text-center  rounded-lg"
             >
