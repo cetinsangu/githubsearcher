@@ -9,6 +9,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 const AuthContext = createContext();
 
@@ -34,15 +35,25 @@ export function AuthProvider({ children }) {
 
   const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
-    const result = await signInWithPopup(auth, provider);
-    setUser(result.user);
-    return result;
+    try {
+      const result = await signInWithPopup(auth, provider);
+      setUser(result.user);
+
+      return result;
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
   const signInWithGithub = async () => {
     const provider = new GithubAuthProvider();
-    const result = await signInWithPopup(auth, provider);
-    setUser(result.user);
-    return result;
+    try {
+      const result = await signInWithPopup(auth, provider);
+      setUser(result.user);
+
+      return result;
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   useEffect(() => {

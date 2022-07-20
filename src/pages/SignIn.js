@@ -59,7 +59,6 @@ function SignIn() {
             <p className="text-white text-center mt-5">or login using</p>
             <div className="flex justify-center flex-row gap-4 mt-5 text-white">
               <Link
-                to={'/'}
                 onClick={signInWithGithub}
                 className="border-gray-400 border p-2 rounded-full"
               >
