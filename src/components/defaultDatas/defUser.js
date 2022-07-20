@@ -1,10 +1,4 @@
-// 20220717185118
-// https://api.github.com/users/cetinsangu
-
-export default // 20220719010202
-// https://api.github.com/users/cetinsangu
-
-{
+export default {
   login: 'cetinsangu',
   id: 41289806,
   node_id: 'MDQ6VXNlcjQxMjg5ODA2',
@@ -31,12 +25,12 @@ export default // 20220719010202
   location: 'Turkey',
   email: null,
   hireable: null,
-  bio: "I'm Cetin, 23 years old and living in Kars/TURKEY. I'm bachelor of law. My primary field of interest is creating websites. Focusing ReactJS right now. ",
+  bio: "I'm Cetin, 23 years old and living in Kars/TURKEY. I have a degree in law. My primary field of interest is creating websites. Focusing ReactJS right now. ",
   twitter_username: 'littledevone_',
   public_repos: 28,
   public_gists: 0,
   followers: 2,
   following: 3,
   created_at: '2018-07-16T10:35:26Z',
-  updated_at: '2022-07-17T21:43:43Z',
+  updated_at: '2022-07-20T10:31:01Z',
 };
