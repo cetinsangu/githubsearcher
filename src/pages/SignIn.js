@@ -90,7 +90,7 @@ function SignIn() {
               Sign Up
             </Link>
             <Link
-              // onClick={() => setUser(true)}
+              onClick={() => setUser(true)}
               to={'/'}
               className="w-full p-4 mt-7 bg-red-700 text-white text-center  rounded-lg"
             >
