@@ -68,7 +68,6 @@ function SignIn() {
               <a
                 onClick={signInWithGoogle}
                 className="border-gray-400 border p-2 rounded-full"
-                href="#"
               >
                 <AiOutlineGoogle size={30} />
               </a>
