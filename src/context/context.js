@@ -13,6 +13,7 @@ const githubApiUrl = 'https://api.github.com';
 const AppContext = createContext();
 
 function AppProvider({ children }) {
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [githubUser, setGithubUser] = useState(defUser);
   const [githubFollowers, setGithubFollowers] = useState(defFollowers);
@@ -91,6 +92,8 @@ function AppProvider({ children }) {
         subscribedRepos,
         fetchGithubDatas,
         error,
+        isDarkMode,
+        setIsDarkMode,
       }}
     >
       {children}

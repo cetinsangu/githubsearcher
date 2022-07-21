@@ -49,7 +49,7 @@ function LastRepos() {
       {...(isMobile ? { whileInView: 'visible' } : { animate: 'visible' })}
       viewport={{ once: true }}
       initial="hidden"
-      className="mt-20 relative pb-3 rounded-tl-none rounded-xl flex flex-col bg-white font-roboto before:content-['Latest_Repos'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black before:bg-white before:px-5 before:py-1 before:border before:rounded-t-lg before:font-light h-80 xs:w-full"
+      className="mt-20 relative pb-3 dark:bg-black rounded-tl-none rounded-xl flex flex-col bg-white font-roboto before:content-['Latest_Repos'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black dark:before:text-white before:bg-white dark:before:bg-black before:px-5 before:py-1 before:border dark:before:border-gray-600 before:rounded-t-lg before:font-light h-80 xs:w-full"
     >
       <div className="overflow-y-scroll overflow-x-hidden">
         {repos.length >= 1 ? (
@@ -71,15 +71,15 @@ function LastRepos() {
                   ? { whileInView: 'visible' }
                   : { animate: 'visible' })}
                 viewport={{ once: true }}
-                className="item pt-3 border-b border-gray-200"
+                className="item pt-3 border-b border-gray-200 "
                 key={id}
               >
                 <div className="pt-2 flex sm:flex-row flex-col  sm:items-baseline">
                   <div className="flex flex-col  sm:items-baseline sm:ml-4 py-2 px-2 w-full items-center sm:w-2/5">
-                    <div className="text-lg font-bold">
+                    <div className="text-lg font-bold dark:text-white">
                       {fork ? `${name} (forked)` : name}
                     </div>
-                    <div className="w-[300px] sm:w-full mt-2 text-sm font-normal text-center sm:text-start text-gray-600">
+                    <div className="w-[300px] sm:w-full mt-2 text-sm font-normal text-center sm:text-start text-gray-600 dark:text-gray-400">
                       {description
                         ? description
                         : 'This repo has no description...'}
@@ -88,7 +88,7 @@ function LastRepos() {
                   <div className="mt-3 sm:mt-0 sm:w-3/5 flex flex-col items-center md:items-end md:mr-3">
                     <div className="flex flex-row  gap-2">
                       <div
-                        className={`rounded-full h-16 w-16 bg-blue-700 text-white flex flex-col items-center justify-center`}
+                        className={`rounded-full h-16 w-16 bg-blue-700 dark:bg-slate-600 text-white flex flex-col items-center justify-center`}
                       >
                         {forks_count}
                         <span className="text-sm font-extralight">
@@ -96,7 +96,7 @@ function LastRepos() {
                         </span>
                       </div>
                       <div
-                        className={`rounded-full h-16 w-16 bg-blue-700 text-white flex flex-col items-center justify-center`}
+                        className={`rounded-full h-16 w-16 bg-blue-700 dark:bg-slate-600 text-white flex flex-col items-center justify-center`}
                       >
                         {stargazers_count}
                         <span className="text-sm font-extralight">
@@ -105,7 +105,8 @@ function LastRepos() {
                       </div>
                     </div>
                     <a
-                      className=" bg-slate-800 border-2 border-blue-700 text-white text-center font-light text-xl my-5 px-4 py-1 rounded-xl hover:bg-white hover:text-slate-800 hover:border-blue-700 transition-all duration-200"
+                      className=" bg-slate-800 border-2 border-blue-700 dark:border-gray-500 text-white text-center font-light text-xl my-5 px-4 py-1 rounded-xl hover:bg-white
+                      dark:hover:bg-slate-900 hover:text-slate-800 dark:hover:text-gray-200 hover:border-blue-700 transition-all duration-200"
                       href={html_url}
                       target="_blank"
                     >

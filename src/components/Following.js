@@ -43,63 +43,70 @@ function Following() {
     },
   };
   return (
-    <motion.div
-      variants={containerVariants}
-      {...(isMobile ? { whileInView: 'visible' } : { animate: 'visible' })}
-      viewport={{ once: true }}
-      initial="hidden"
-      className="mt-20 md:mt-10 relative rounded-tl-none rounded-xl flex flex-col bg-white font-roboto before:content-['Followings'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black before:bg-white before:px-5 before:py-1 before:border before:rounded-t-lg before:font-light h-80"
-    >
-      <div className="p-3 overflow-scroll">
-        {githubFollowing.length >= 1 ? (
-          githubFollowing.map((follower) => {
-            const { avatar_url, login, html_url } = follower;
-            return (
-              <motion.div
-                variants={item}
-                key={follower.id}
-                className="flex py-2 justify-between md:justify-center items-center w-full"
-              >
-                <div className="flex flex-row">
-                  <img
-                    className="w-12 h-12 rounded-full"
-                    src={avatar_url}
-                    alt={login}
-                  />
-                  <div className="flex flex-col ml-4 justify-center xl:w-96">
-                    <div className="text-lg font-bold">{login}</div>
-                    <div className="text-sm font-thin text-gray-500 w-48 ">
-                      <a
-                        className="hidden md:flex"
-                        href={html_url}
-                        target="_blank"
-                      >
-                        {html_url}
-                      </a>
-                      <a
-                        className="md:hidden font-normal text-sky-500 text-xs"
-                        href={html_url}
-                        target="_blank"
-                      >
-                        Github Profile
-                      </a>
+    <div>
+      <motion.div
+        variants={containerVariants}
+        {...(isMobile ? { whileInView: 'visible' } : { animate: 'visible' })}
+        viewport={{ once: true }}
+        initial="hidden"
+        className="mt-20 md:mt-10 relative rounded-tl-none dark:bg-black rounded-xl flex flex-col bg-white font-roboto before:content-['Followings'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black dark:before:text-white before:bg-white dark:before:bg-black before:px-5 before:py-1 before:border dark:before:border-gray-600 before:rounded-t-lg before:font-light h-80"
+      >
+        <div className="p-3 overflow-scroll">
+          {githubFollowing.length >= 1 ? (
+            githubFollowing.map((follower) => {
+              const { avatar_url, login, html_url } = follower;
+              return (
+                <motion.div
+                  variants={item}
+                  key={follower.id}
+                  className="flex py-2 justify-between md:justify-center items-center w-full"
+                >
+                  <div className="flex flex-row">
+                    <img
+                      className="w-12 h-12 rounded-full border-2 dark:border-white"
+                      src={avatar_url}
+                      alt={login}
+                    />
+                    <div className="flex flex-col ml-4 justify-center xl:w-96">
+                      <div className="text-lg font-bold dark:text-gray-100">
+                        {login}
+                      </div>
+                      <div className="md:flex text-sm font-thin text-gray-500 w-48 ">
+                        <a
+                          className="hidden md:flex"
+                          href={html_url}
+                          target="_blank"
+                        >
+                          {html_url}
+                        </a>
+                        <a
+                          className="md:hidden font-normal text-sky-500 dark:text-teal-100 text-xs"
+                          href={html_url}
+                          target="_blank"
+                        >
+                          Github Profile
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <a
-                  onClick={() => fetchGithubDatas(login)}
-                  className="bg-blue-700 text-white font-light text-base px-5 py-2 rounded-3xl mr-3 md:ml-10 border-2 border-sky-300 hover:bg-white hover:text-blue-700 hover:border-sky-500 hover:border-2 transition-all"
-                >
-                  Visit
-                </a>
-              </motion.div>
-            );
-          })
-        ) : (
-          <div className="text-center text-xl text-gray-500">No Followings</div>
-        )}
-      </div>
-    </motion.div>
+                  <a
+                    onClick={() => fetchGithubDatas(login)}
+                    className="bg-blue-700 dark:bg-slate-500 cursor-pointer text-white font-light text-base px-5 py-2 rounded-3xl mr-3 md:ml-10 border border-sky-300  dark:border-gray-100 hover:bg-white dark:hover:bg-slate-800 hover:text-blue-700 dark:hover:text-gray-200 hover:border-sky-500 dark:hover:border-gray-300 transition-all"
+                    target="_blank"
+                  >
+                    Visit
+                  </a>
+                </motion.div>
+              );
+            })
+          ) : (
+            <div className="text-center text-xl text-gray-500">
+              No Followings
+            </div>
+          )}
+        </div>
+      </motion.div>
+    </div>
   );
 }
 

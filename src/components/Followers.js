@@ -46,7 +46,7 @@ function Followers() {
       {...(isMobile ? { whileInView: 'visible' } : { animate: 'visible' })}
       viewport={{ once: true }}
       initial="hidden"
-      className="mt-10 relative rounded-tl-none rounded-xl flex flex-col bg-white font-roboto before:content-['Followers'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black before:bg-white before:px-5 before:py-1 before:border before:rounded-t-lg before:font-light h-80"
+      className="mt-10 relative rounded-tl-none rounded-xl flex flex-col bg-white dark:bg-black font-roboto before:content-['Followers'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black dark:before:text-white before:bg-white dark:before:bg-black before:px-5 before:py-1 before:border dark:before:border-gray-600 before:rounded-t-lg before:font-light h-80"
     >
       <div className="p-3 overflow-scroll">
         {githubFollowers.length >= 1 ? (
@@ -60,12 +60,14 @@ function Followers() {
               >
                 <div className="flex flex-row">
                   <img
-                    className="w-12 h-12 rounded-full"
+                    className="w-12 h-12 rounded-full border-2 dark:border-white"
                     src={avatar_url}
                     alt={login}
                   />
                   <div className="flex flex-col ml-4 justify-center xl:w-96">
-                    <div className="text-lg font-bold">{login}</div>
+                    <div className="text-lg font-bold dark:text-gray-100">
+                      {login}
+                    </div>
                     <div className="md:flex text-sm font-thin text-gray-500 w-48 ">
                       <a
                         className="hidden md:flex"
@@ -75,7 +77,7 @@ function Followers() {
                         {html_url}
                       </a>
                       <a
-                        className="md:hidden font-normal text-sky-500 text-xs"
+                        className="md:hidden font-normal text-sky-500 dark:text-teal-100 text-xs"
                         href={html_url}
                         target="_blank"
                       >
@@ -86,7 +88,7 @@ function Followers() {
                 </div>
                 <a
                   onClick={() => fetchGithubDatas(login)}
-                  className="bg-blue-700 cursor-pointer text-white font-light text-base px-5 py-2 rounded-3xl mr-3 md:ml-10 border-2 border-sky-300 hover:bg-white hover:text-blue-700 hover:border-sky-500 hover:border-2 transition-all"
+                  className="bg-blue-700 dark:bg-slate-500 cursor-pointer text-white font-light text-base px-5 py-2 rounded-3xl mr-3 md:ml-10 border border-sky-300  dark:border-gray-100 hover:bg-white dark:hover:bg-slate-800 hover:text-blue-700 dark:hover:text-gray-200 hover:border-sky-500 dark:hover:border-gray-300  transition-all"
                   target="_blank"
                 >
                   Visit

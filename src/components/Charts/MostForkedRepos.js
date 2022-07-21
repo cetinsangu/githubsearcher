@@ -59,6 +59,7 @@ export function MostForkedRepos() {
         display: true,
         position: 'left',
         text: 'Repos',
+        color: 'rgb(255, 255, 255)',
       },
     },
     animation: {

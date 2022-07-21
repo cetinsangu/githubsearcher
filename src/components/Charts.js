@@ -3,6 +3,7 @@ import { MostStarredRepos } from './Charts/MostStarredRepos';
 import { MostForkedRepos } from './Charts/MostForkedRepos';
 import { SubscribingRepos } from './Charts/SubscribingRepos';
 import { motion } from 'framer-motion';
+
 function Charts() {
   let containerVariants = {};
   const isMobile = window.innerWidth < 768;
@@ -35,7 +36,7 @@ function Charts() {
         initial="hidden"
         {...(isMobile ? { whileInView: 'visible' } : { animate: 'visible' })}
         viewport={{ once: true }}
-        className="mt-20 relative p-3 rounded-tl-none rounded-xl flex items-center justify-center bg-white font-roboto before:content-['Most_Used_Languages'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black before:bg-white before:px-5 before:py-1 before:border before:rounded-t-lg before:font-light"
+        className="mt-20 relative p-3 rounded-tl-none rounded-xl flex items-center justify-center bg-white dark:bg-black font-roboto before:content-['Most_Used_Languages'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black dark:before:text-white before:bg-white dark:before:bg-black before:px-5 before:py-1 before:border dark:before:border-gray-600 before:rounded-t-lg before:font-light"
       >
         <MostUsedLangs />
       </motion.div>
@@ -44,7 +45,7 @@ function Charts() {
         initial="hidden"
         {...(isMobile ? { whileInView: 'visible' } : { animate: 'visible' })}
         viewport={{ once: true }}
-        className="mt-20 relative p-3 rounded-tl-none rounded-xl flex items-center justify-center bg-white font-roboto before:content-['Most_Starred_Repos'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black before:bg-white before:px-5 before:py-1 before:border before:rounded-t-lg before:font-light"
+        className="mt-20 relative p-3 rounded-tl-none rounded-xl flex items-center justify-center bg-white dark:bg-black font-roboto before:content-['Most_Starred_Repos'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black dark:before:text-white before:bg-white dark:before:bg-black before:px-5 before:py-1 before:border dark:before:border-gray-600 before:rounded-t-lg before:font-light"
       >
         <MostStarredRepos />
       </motion.div>
@@ -53,7 +54,7 @@ function Charts() {
         initial="hidden"
         {...(isMobile ? { whileInView: 'visible' } : { animate: 'visible' })}
         viewport={{ once: true }}
-        className="mt-20 relative p-3 rounded-tl-none rounded-xl flex items-center justify-center bg-white font-roboto before:content-['Most_Forked_Repos'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black before:bg-white before:px-5 before:py-1 before:border before:rounded-t-lg before:font-light"
+        className="mt-20 relative p-3 rounded-tl-none rounded-xl flex items-center justify-center bg-white dark:bg-black font-roboto before:content-['Most_Forked_Repos'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black dark:before:text-white before:bg-white dark:before:bg-black before:px-5 before:py-1 before:border dark:before:border-gray-600 before:rounded-t-lg before:font-light"
       >
         <MostForkedRepos />
       </motion.div>

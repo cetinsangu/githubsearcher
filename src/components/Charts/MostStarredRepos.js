@@ -18,7 +18,7 @@ ChartJS.register(
   Legend
 );
 export function MostStarredRepos() {
-  const { githubRepos } = useAppContext();
+  const { githubRepos, isDarkMode } = useAppContext();
 
   const calcMostStars = githubRepos
     .filter((repo) => repo.stargazers_count > 0)
@@ -47,6 +47,13 @@ export function MostStarredRepos() {
       title: {
         display: true,
         text: 'Most Starred Repos',
+        color: 'rgb(255, 255, 255)',
+      },
+      legend: {
+        display: true,
+        labels: {
+          color: isDarkMode ? 'rgb(255, 255, 255)' : 'rgb(0,0,0)',
+        },
       },
     },
     animation: {

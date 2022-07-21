@@ -2,7 +2,7 @@ import { useAppContext } from '../context/context';
 import { motion } from 'framer-motion';
 
 function MainInfos() {
-  const { githubUser } = useAppContext();
+  const { githubUser, isDarkMode } = useAppContext();
   const { public_repos, followers, following, public_gists } = githubUser;
   const items = [
     {
@@ -50,26 +50,27 @@ function MainInfos() {
       variants={container}
       initial="hidden"
       animate="visible"
-      className="grid grid-cols-2 sm:grid-cols-4 place-items-center mt-10 gap-y-5 max-w-screen-xl mx-16 sm:mx-auto"
+      className={`${
+        isDarkMode && 'dark'
+      } grid grid-cols-2 sm:grid-cols-4 place-items-center mt-10 gap-y-5 max-w-screen-xl mx-16 sm:mx-auto`}
     >
       {items.map((item) => {
         return (
           <motion.div
             variants={circleItem}
             key={item.id}
-            className="w-24 h-24 md:w-32 md:h-32 bg-white rounded-full flex flex-col items-center justify-center font-roboto border-2 border-blue-400 hover:border-4 hover:border-blue-700"
+            className="w-24 h-24 md:w-32 md:h-32 bg-white dark:bg-black rounded-full flex flex-col items-center justify-center font-roboto border-2 dark:border-gray-500 dark:hover:border-gray-700 border-blue-400 hover:border-4 hover:border-blue-700"
           >
             <div
-              className={`${
-                item.value.toString().length > 3 ? 'md:text-4xl' : 'md:text-5xl'
-              } 
-              } ${
-                item.value.toString().length > 3 ? 'text-2xl' : 'text-4xl'
-              } font-bold`}
+              className={`
+               ${
+                 item.value.toString().length > 3 ? 'text-2xl' : 'text-4xl'
+               } font-bold 
+               text-black dark:text-gray-300`}
             >
               {item.value}
             </div>
-            <div className="text-sm md:text-base font-light text-gray-500">
+            <div className="text-sm md:text-base font-light text-gray-500 dark:text-gray-400">
               {item.name}
             </div>
           </motion.div>

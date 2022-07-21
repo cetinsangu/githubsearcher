@@ -6,13 +6,22 @@ import { useAppContext } from '../../context/context';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export function MostUsedLangs() {
-  const { githubRepos } = useAppContext();
+  const { githubRepos, isDarkMode } = useAppContext();
 
   const options = {
     responsive: true,
     maintainAspectRatio: false,
     animation: {
       delay: 2200,
+    },
+
+    plugins: {
+      legend: {
+        display: true,
+        labels: {
+          color: isDarkMode ? 'rgb(255, 255, 255)' : 'rgb(0,0,0)',
+        },
+      },
     },
   };
   const calcLangs = githubRepos.reduce((acc, curr) => {
@@ -35,8 +44,8 @@ export function MostUsedLangs() {
         offset: 0,
         data: langs,
         backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(54, 162, 235,)',
+          'rgb(255, 66, 132)',
+          'rgb(28, 78, 216)',
           'rgb(255, 206, 86)',
           'rgb(75, 192, 192)',
           'rgb(153, 102, 255)',

@@ -4,12 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  width: 100vw;
-  height: 100vh;
-  background-color: #1f2937;
-}
-
 .active {
   color: #007d21;
 }

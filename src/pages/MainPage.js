@@ -8,10 +8,10 @@ import Footer from '../components/Footer';
 import loadingSvg from '../images/loading.svg';
 import { useAppContext } from '../context/context';
 function MainPage() {
-  const { isLoading, error } = useAppContext();
+  const { isLoading, error, isDarkMode } = useAppContext();
   if (isLoading || error) {
     return (
-      <div>
+      <div className="h-screen bg-gradient-to-r from-sky-500 to-indigo-500">
         <Navbar />
         <SearchBar />
         {!error && (
@@ -25,14 +25,16 @@ function MainPage() {
     );
   }
   return (
-    <div>
-      <Navbar />
-      <SearchBar />
-      <MainInfos />
-      <MainUser />
-      <Follows />
-      <Charts />
-      <Footer />
+    <div className={isDarkMode && 'dark'}>
+      <div className="bg-gradient-to-b from-sky-500 via-cyan-700 to-violet-900 dark:bg-gradient-to-bl dark:from-neutral-800 dark:via-slate-800 dark:to-blue-600">
+        <Navbar />
+        <SearchBar />
+        <MainInfos />
+        <MainUser />
+        <Follows />
+        <Charts />
+        <Footer />
+      </div>
     </div>
   );
 }
