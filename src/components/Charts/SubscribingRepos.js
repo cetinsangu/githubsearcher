@@ -49,7 +49,7 @@ export function SubscribingRepos() {
       {...(isMobile ? { whileInView: 'visible' } : { animate: 'visible' })}
       viewport={{ once: true }}
       initial="hidden"
-      className="mt-20 relative pb-3 rounded-tl-none rounded-xl flex flex-col bg-white dark:bg-black font-roboto before:content-['Repos_Subscribing'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black dark:before:text-white before:bg-white dark:before:bg-black before:px-5 before:py-1 before:border dark:before:border-gray-600 before:rounded-t-lg before:font-light h-80 sm:w-full"
+      className="mt-20 relative pb-3 rounded-tl-none rounded-xl flex flex-col bg-white dark:bg-gray-900 dark:border dark:border-white font-roboto before:content-['Repos_Subscribing'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black dark:before:text-white before:bg-white dark:before:bg-gray-900 before:px-5 before:py-1 before:border dark:before:border-white before:rounded-t-lg before:font-light h-80 sm:w-full"
     >
       <div className="overflow-y-scroll overflow-x-hidden">
         {repos.length >= 1 ? (

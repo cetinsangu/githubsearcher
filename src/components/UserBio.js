@@ -56,7 +56,7 @@ function UserBio() {
       variants={container}
       initial="hidden"
       animate="visible"
-      className="mt-20 relative p-3 rounded-tl-none rounded-xl bg-white dark:bg-black font-roboto before:content-['User'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black dark:before:text-white before:bg-white dark:before:bg-black before:px-5 before:py-1 before:border dark:before:border-gray-600 before:rounded-t-lg before:font-light"
+      className="mt-20 relative p-3 rounded-tl-none rounded-xl bg-white dark:bg-gray-900 border border-white font-roboto before:content-['User'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black dark:before:text-white before:bg-white dark:before:bg-gray-900 before:px-5 before:py-1 before:border before:rounded-t-lg before:font-light"
     >
       <motion.div
         variants={headItem}

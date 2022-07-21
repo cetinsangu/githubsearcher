@@ -46,7 +46,7 @@ function Followers() {
       {...(isMobile ? { whileInView: 'visible' } : { animate: 'visible' })}
       viewport={{ once: true }}
       initial="hidden"
-      className="mt-10 relative rounded-tl-none rounded-xl flex flex-col bg-white dark:bg-black font-roboto before:content-['Followers'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black dark:before:text-white before:bg-white dark:before:bg-black before:px-5 before:py-1 before:border dark:before:border-gray-600 before:rounded-t-lg before:font-light h-80"
+      className="mt-10 relative rounded-tl-none border border-white dark:bg-gray-900 rounded-xl flex flex-col bg-white font-roboto before:content-['Followers'] before:absolute before:top-0 before:left-0 before:-translate-y-full before:text-black dark:before:text-white before:bg-white dark:before:bg-gray-900  before:px-5 before:py-1 before:border before:rounded-t-lg before:font-light h-80"
     >
       <div className="p-3 overflow-scroll">
         {githubFollowers.length >= 1 ? (

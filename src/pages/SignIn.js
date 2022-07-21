@@ -64,23 +64,21 @@ function SignIn() {
             </button>
             <p className="text-white text-center mt-5">or login using</p>
             <div className="flex justify-center flex-row gap-4 mt-5 text-white">
-              <Link
-                to={'/'}
+              <a
                 onClick={signInWithGithub}
-                className="border-gray-400 border p-2 rounded-full"
+                className="border-gray-400 border p-2 rounded-full cursor-pointer"
               >
                 <AiOutlineGithub size={30} />
-              </Link>
+              </a>
               <a
                 onClick={signInWithGoogle}
-                className="border-gray-400 border p-2 rounded-full"
+                className="border-gray-400 border p-2 rounded-full cursor-pointer"
               >
                 <AiOutlineGoogle size={30} />
               </a>
               <a
                 onClick={signInWithTwitter}
-                className="border-gray-400 border p-2 rounded-full"
-                href="#"
+                className="border-gray-400 border p-2 rounded-full cursor-pointer"
               >
                 <AiOutlineTwitter size={30} />
               </a>

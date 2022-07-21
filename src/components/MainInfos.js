@@ -59,7 +59,10 @@ function MainInfos() {
           <motion.div
             variants={circleItem}
             key={item.id}
-            className="w-24 h-24 md:w-32 md:h-32 bg-white dark:bg-black rounded-full flex flex-col items-center justify-center font-roboto border-2 dark:border-gray-500 dark:hover:border-gray-700 border-blue-400 hover:border-4 hover:border-blue-700"
+            className="w-24 h-24 md:w-32 md:h-32 bg-white dark:bg-black rounded-full flex flex-col items-center justify-center font-roboto border-2 
+      dark:border-gray-500 dark:hover:border-gray-700 border-blue-500 hover:border-4
+      hover:border-blue-700
+      hover:transition-all"
           >
             <div
               className={`

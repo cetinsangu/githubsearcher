@@ -25,7 +25,7 @@ function MainPage() {
     );
   }
   return (
-    <div className={isDarkMode && 'dark'}>
+    <div className={isDarkMode ? 'dark' : undefined}>
       <div className="bg-gradient-to-b from-sky-500 via-cyan-700 to-violet-900 dark:bg-gradient-to-bl dark:from-neutral-800 dark:via-slate-800 dark:to-blue-600">
         <Navbar />
         <SearchBar />
