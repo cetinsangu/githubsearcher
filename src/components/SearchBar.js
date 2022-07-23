@@ -12,7 +12,6 @@ function SearchBar() {
   };
   const [user, setUser] = useState('');
   const { fetchGithubDatas, isDarkMode } = useAppContext();
-  console.log(isDarkMode);
   const handleSubmit = (e) => {
     e.preventDefault();
     user && fetchGithubDatas(user);
