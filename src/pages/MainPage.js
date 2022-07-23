@@ -19,7 +19,7 @@ function MainPage() {
         }`}
       >
         <Navbar />
-        <SearchBar />
+        {!isLoading && <SearchBar />}
         {!error && (
           <img
             className="mx-auto w-36 mt-20"
