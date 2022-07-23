@@ -8,8 +8,9 @@ function Navbar() {
   const { isDarkMode, setIsDarkMode } = useAppContext();
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const { user, logout } = useAuth();
+
   return (
-    <header>
+    <header className={isDarkMode ? 'dark' : undefined}>
       <nav className="dark:border-b dark:border-gray-400 px-4 lg:px-6 py-2.5 bg-cyan-400 bg-opacity-40 dark:bg-gray-900">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <Link to={'/'} className="flex gap-2 items-center">

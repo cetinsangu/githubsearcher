@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
-
+import Navbar from '../components/Navbar';
+import { useAppContext } from '../context/context';
 import { Link } from 'react-router-dom';
 function About() {
+  const { isDarkMode } = useAppContext();
   const container = {
     hidden: { opacity: 0 },
     visible: {
@@ -42,13 +44,20 @@ function About() {
     },
   };
   return (
-    <div className="bg-gray-800 font-poppins h-full ">
+    <div
+      className={`${
+        isDarkMode
+          ? 'bg-gradient-to-bl from-neutral-800 via-slate-800 to-blue-600 h-full flex flex-col gap-y-5'
+          : 'bg-gradient-to-b from-sky-500 via-cyan-700 to-violet-900 h-full flex flex-col gap-y-5'
+      }`}
+    >
+      <Navbar />
       <div className="font-poppins flex flex-col w-[90vw] sm:max-w-xl gap-y-8 xs:h-screen mx-auto items-center justify-center">
         <motion.h1
           variants={animateCross}
           initial="hidden"
           animate="visible"
-          className="border-b-4 text-white text-xl xl:text-2xl p-2 border-sky-600"
+          className="border-b-4 text-white text-xl xl:text-2xl p-2 border-sky-400"
         >
           ABOUT
         </motion.h1>
@@ -82,25 +91,25 @@ function About() {
               </p>
             </motion.li>
             <motion.li variants={item}>
-              <p>2- See the latest repositories of the searched user</p>
+              <p>2- See the latest repositories of the searched user.</p>
             </motion.li>
             <motion.li variants={item}>
-              <p>3- See the followers of the searched user</p>
+              <p>3- See the followers of the searched user.</p>
             </motion.li>
             <motion.li variants={item}>
-              <p>4- See the following of the searched user</p>
+              <p>4- See the following of the searched user.</p>
             </motion.li>
             <motion.li variants={item}>
-              <p>5- See the most used languages of the searched user</p>
+              <p>5- See the most used languages of the searched user.</p>
             </motion.li>
             <motion.li variants={item}>
-              <p>6- See the most starred repositories of the searched user</p>
+              <p>6- See the most starred repositories of the searched user.</p>
             </motion.li>
             <motion.li variants={item}>
-              <p>7- See the most forked repositories of the searched user</p>
+              <p>7- See the most forked repositories of the searched user.</p>
             </motion.li>
             <motion.li variants={item}>
-              <p>8- See the subscribing repositories of the searched user</p>
+              <p>8- See the subscribing repositories of the searched user.</p>
             </motion.li>
           </motion.ul>
         </div>

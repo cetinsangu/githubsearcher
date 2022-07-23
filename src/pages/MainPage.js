@@ -11,7 +11,13 @@ function MainPage() {
   const { isLoading, error, isDarkMode } = useAppContext();
   if (isLoading || error) {
     return (
-      <div className="h-screen bg-gradient-to-r from-sky-500 to-indigo-500">
+      <div
+        className={`${
+          isDarkMode
+            ? 'bg-gradient-to-bl from-neutral-800 via-slate-800 to-blue-600 h-screen'
+            : 'bg-gradient-to-b from-sky-500 via-cyan-700 to-violet-900 h-screen'
+        }`}
+      >
         <Navbar />
         <SearchBar />
         {!error && (

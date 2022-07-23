@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion';
 import { AiFillGithub, AiFillLinkedin, AiOutlineTwitter } from 'react-icons/ai';
+import { useAppContext } from '../context/context';
 
+import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 function Contact() {
+  const { isDarkMode } = useAppContext();
+
   const containerVariants = {
     hidden: { opacity: 0, x: -300 },
     visible: {
@@ -51,13 +55,20 @@ function Contact() {
     },
   };
   return (
-    <div className="bg-gray-800 font-poppins h-screen xs:h-full flex">
-      <div className="font-poppins flex flex-col w-[90vw] sm:max-w-xl gap-y-5 xs:h-screen mx-auto items-center justify-center">
+    <div
+      className={`${
+        isDarkMode
+          ? 'bg-gradient-to-bl from-neutral-800 via-slate-800 to-blue-600 h-full'
+          : 'bg-gradient-to-b from-sky-500 via-cyan-700 to-violet-900 h-full'
+      }`}
+    >
+      <Navbar />
+      <div className="font-poppins flex flex-col w-[90vw] sm:max-w-xl gap-y-5 xs:h-screen mx-auto items-center justify-center h-screen">
         <motion.h1
           variants={animateCross}
           initial="hidden"
           animate="visible"
-          className="border-b-4 text-white text-xl xl:text-2xl p-2 border-sky-600"
+          className="border-b-4 text-white text-xl xl:text-2xl p-2 border-sky-400"
         >
           Contact
         </motion.h1>
