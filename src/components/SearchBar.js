@@ -2,8 +2,6 @@ import searchIcon from '../images/searchIcon.png';
 import { useState } from 'react';
 import { useAppContext } from '../context/context';
 import { motion } from 'framer-motion';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 function SearchBar() {
   const variants = {
     hidden: { opacity: 0, y: 100 },
@@ -17,16 +15,6 @@ function SearchBar() {
   const handleSubmit = (e) => {
     e.preventDefault();
     user && fetchGithubDatas(user);
-    !error &&
-      toast.success('Infos loaded successfully.', {
-        position: 'top-right',
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
     setUser('');
   };
   return (

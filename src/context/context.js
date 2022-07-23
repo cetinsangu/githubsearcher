@@ -37,6 +37,7 @@ function AppProvider({ children }) {
   };
 
   const fetchGithubDatas = async (user) => {
+    setError(false);
     setIsLoading(true);
     const userRes = await fetch(`${githubApiUrl}/users/${user}`);
     if (userRes.status === 200) {
@@ -62,6 +63,15 @@ function AppProvider({ children }) {
         setGithubRepos(reposDatas);
         setLatestGithubRepos(latestReposDatas);
         setSubscribedRepos(subscribedReposDatas);
+        toast.success('Infos loaded successfully.', {
+          position: 'top-right',
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
     } else {
       setError(true);
@@ -74,7 +84,7 @@ function AppProvider({ children }) {
   };
 
   useEffect(() => {
-    remainingRequests >= 1 && fetchGithubDatas('cetinsangu');
+    remainingRes >= 1 && fetchGithubDatas('cetinsangu');
   }, []);
 
   return (

@@ -16,7 +16,7 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route element={<SignedInPrivRoute />}>
-            <Route path="/" element={<MainPage />} />
+            <Route path="/  " element={<MainPage />} />
           </Route>
           <Route element={<UnSignedInPrivRoute />}>
             <Route path="/signup" element={<Signup />} />
