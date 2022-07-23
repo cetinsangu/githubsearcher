@@ -16,7 +16,7 @@ function Navbar() {
           <Link to={'/'} className="flex gap-2 items-center">
             <GoMarkGithub className="text-white" size={25} />
             <span className="text-sm md:text-lg font-semibold text-white">
-              Github Searcher
+              GitHub Searcher
             </span>
           </Link>
           <div className="flex items-center lg:order-2">
