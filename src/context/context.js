@@ -83,10 +83,6 @@ function AppProvider({ children }) {
     setIsLoading(false);
   };
 
-  useEffect(() => {
-    remainingRequests >= 1 && fetchGithubDatas('cetinsangu');
-  }, []);
-
   return (
     <AppContext.Provider
       value={{
