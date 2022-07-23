@@ -1,5 +1,5 @@
 
-# Github Searcher | Search for a Github user and see nearly everything about the searched user!
+# [GitHub Searcher](https://www.githubsearcher.cetinsangu.com) | Search for a Github user and see nearly everything about the searched user!
 
 > Github Searcher is a simple app to help you track of Github informations. You could see the latest repositories, followers, following, most used languages, starred repositories, forked repositories, subscribing repositories of the searched user.
 
