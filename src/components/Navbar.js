@@ -80,7 +80,7 @@ function Navbar() {
               <li>
                 <Link
                   to={'/'}
-                  className="block py-2 pr-4 pl-3 text-white rounded bg-blue-700 lg:bg-transparent lg:p-0 dark:text-white cursor-pointer"
+                  className="block py-2 pr-4 pl-3 text-white rounded lg:hover:text-gray-600 dark:lg:hover:text-gray-300 lg:transition-all bg-blue-700 lg:bg-transparent lg:p-0 dark:text-white cursor-pointer"
                 >
                   Home
                 </Link>
@@ -88,7 +88,7 @@ function Navbar() {
               <li>
                 <Link
                   to={'/about'}
-                  className="block py-2 pr-4 pl-3 text-white rounded bg-blue-700 lg:bg-transparent lg:p-0 dark:text-white cursor-pointer"
+                  className="block py-2 pr-4 pl-3 text-white rounded bg-blue-700 lg:hover:text-gray-600 dark:lg:hover:text-gray-300 lg:transition-all lg:bg-transparent lg:p-0 dark:text-white cursor-pointer"
                 >
                   About
                 </Link>
@@ -96,7 +96,7 @@ function Navbar() {
               <li>
                 <Link
                   to={'/contact'}
-                  className="block py-2 pr-4 pl-3 text-white rounded bg-blue-700 lg:bg-transparent lg:p-0 dark:text-white cursor-pointer"
+                  className="block py-2 pr-4 pl-3 text-white rounded bg-blue-700 lg:hover:text-gray-600 dark:lg:hover:text-gray-300 lg:transition-all lg:bg-transparent lg:p-0 dark:text-white cursor-pointer"
                 >
                   Contact
                 </Link>
@@ -105,7 +105,7 @@ function Navbar() {
                 <Link
                   to={'/signin'}
                   onClick={logout}
-                  className="block py-2 pr-4 pl-3 text-white rounded bg-red-700 lg:p-0 lg:bg-red-600 lg:w-24 lg:h-8 lg:flex lg:items-center lg:justify-center dark:text-white cursor-pointer"
+                  className="block py-2 pr-4 pl-3 text-white rounded bg-red-700 lg:p-0 lg:bg-red-600 lg:hover:bg-red-800 lg:transition-all lg:w-24 lg:h-8 lg:flex lg:items-center lg:justify-center dark:text-white cursor-pointer"
                 >
                   Logout
                 </Link>

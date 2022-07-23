@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import defUser from '../components/defaultDatas/defUser';
 import defFollowers from '../components/defaultDatas/defFollowers';
 import defRepos from '../components/defaultDatas/defRepos';
@@ -21,18 +21,21 @@ function AppProvider({ children }) {
   const [githubRepos, setGithubRepos] = useState(defRepos);
   const [latestGithubRepos, setLatestGithubRepos] = useState(defLatestRepos);
   const [subscribedRepos, setSubscribedRepos] = useState(defSubscribedRepos);
-
+  const [remainingRequests, setRemainingRequests] = useState(60);
   const [error, setError] = useState(null);
   const remainingReq = async () => {
     const response = await fetch(`${githubApiUrl}/rate_limit`);
     const data = await response.json();
     if (data.resources.core.remaining === 0) {
+      setRemainingRequests(0);
       toast.error(
         'You have reached the limit of requests. Please try 1 hour later.'
       );
+
       setError(false);
     }
   };
+
   const fetchGithubDatas = async (user) => {
     setError(false);
     setIsLoading(true);
@@ -60,15 +63,6 @@ function AppProvider({ children }) {
         setGithubRepos(reposDatas);
         setLatestGithubRepos(latestReposDatas);
         setSubscribedRepos(subscribedReposDatas);
-        toast.success('Infos loaded successfully.', {
-          position: 'top-right',
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
       });
     } else {
       setError(true);
@@ -79,6 +73,10 @@ function AppProvider({ children }) {
     }
     setIsLoading(false);
   };
+
+  useEffect(() => {
+    remainingRequests >= 1 && fetchGithubDatas('cetinsangu');
+  }, []);
 
   return (
     <AppContext.Provider
