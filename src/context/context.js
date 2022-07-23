@@ -37,7 +37,6 @@ function AppProvider({ children }) {
   };
 
   const fetchGithubDatas = async (user) => {
-    setError(false);
     setIsLoading(true);
     const userRes = await fetch(`${githubApiUrl}/users/${user}`);
     if (userRes.status === 200) {
