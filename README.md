@@ -1,70 +1,61 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Github Searcher | Search for a Github user and see nearly everything about the searched user!
 
-## Available Scripts
+> Github Searcher is a simple app to help you track of Github informations. You could see the latest repositories, followers, following, most used languages, starred repositories, forked repositories, subscribing repositories of the searched user.
 
-In the project directory, you can run:
 
-### `npm start`
+## Tech Stack
+- **React**, Context API for state management.
+- **React Router** for Routing.
+- **Github API**
+- **Tailwind CSS** for styling.
+- **ChartJS** to build awesome charts.
+- **Firebase** for Authentication.
+- **Framer Motion** to create nice looking animations.
+- **Toastify** for the toasts.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Login with e-mail and password | | Github | | Google | | Twitter | | Sign Up with e-mail and password  | Or just test the app with no sign-in & sign-up requirements.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+https://user-images.githubusercontent.com/41289806/180624104-965f1355-4fa4-4877-ad43-1e258fd8b1e8.mov
 
-### `npm test`
+- I used Firebase Authentication for signing in and signing out. User has to create a user to enter the app. Without an account, user will be automatically redirected to the Sign In page. I managed that with Private Route.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Beautifully animated Main Page
 
-### `npm run build`
+https://user-images.githubusercontent.com/41289806/180624111-48053d6e-0176-45f8-9c3e-bdee5e175cc3.mov
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Searching the typed GitHub user and fetching all the informations about user from GitHub API. I did all that with Context. I used higher order JavaScript functions: map(), reduce(), filter() and other reasonable methods like sort(), slice() and Promise.all().
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# About Page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+https://user-images.githubusercontent.com/41289806/180624110-72efa615-c054-4f96-978a-5883160c3e70.mov
 
-### `npm run eject`
+# Contact Page
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+https://user-images.githubusercontent.com/41289806/180624109-27c206fc-e588-4f20-b1b7-4ca9fa622f1b.mov
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Mobile View
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+https://user-images.githubusercontent.com/41289806/180624105-6d50a594-9b00-419f-8a25-e40142a518bd.mov
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Dark Mode
 
-## Learn More
+https://user-images.githubusercontent.com/41289806/180624107-5ffc534b-5d17-4919-bfea-d83e65d2625a.mov
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
