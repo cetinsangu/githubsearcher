@@ -84,7 +84,7 @@ function AppProvider({ children }) {
   };
 
   useEffect(() => {
-    remainingRes >= 1 && fetchGithubDatas('cetinsangu');
+    remainingRequests >= 1 && fetchGithubDatas('cetinsangu');
   }, []);
 
   return (
