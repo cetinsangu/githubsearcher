@@ -23,6 +23,7 @@ function AppProvider({ children }) {
   const [subscribedRepos, setSubscribedRepos] = useState(defSubscribedRepos);
   const [remainingRequests, setRemainingRequests] = useState(60);
   const [error, setError] = useState(null);
+  //checking remainig requests, if it is 0, then show error
   const remainingReq = async () => {
     const response = await fetch(`${githubApiUrl}/rate_limit`);
     const data = await response.json();
@@ -35,7 +36,7 @@ function AppProvider({ children }) {
       setError(false);
     }
   };
-
+  // fetching user data, followers, following, repos, latest repos, subscribed repos, remaining requests and setting them to state, if error, show error message, if success, show success message
   const fetchGithubDatas = async (user) => {
     setError(false);
     setIsLoading(true);
